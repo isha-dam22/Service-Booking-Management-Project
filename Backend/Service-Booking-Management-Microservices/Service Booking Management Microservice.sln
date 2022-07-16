@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service Booking Management Microservice", "Service Booking Management Microservice\Service Booking Management Microservice.csproj", "{54E355E8-D2CC-4A85-9FD7-54AD4A105AAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54E355E8-D2CC-4A85-9FD7-54AD4A105AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E355E8-D2CC-4A85-9FD7-54AD4A105AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E355E8-D2CC-4A85-9FD7-54AD4A105AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E355E8-D2CC-4A85-9FD7-54AD4A105AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {754C34A5-3E8E-411F-844C-626A022F546B}
+	EndGlobalSection
+EndGlobal
