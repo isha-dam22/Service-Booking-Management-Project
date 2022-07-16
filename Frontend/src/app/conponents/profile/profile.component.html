@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="all">
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+            {{message}}
+          </div>
+    </div>
+
+    <ng-template #elseBlock> 
+    <div class="container">
+        <div class="text-center">
+            <h5 class="mb-4" style="color: white;">Update Password</h5>
+        </div>
+        <div *ngIf="this.success === true">
+            <div class="alert alert-success" role="alert">
+                {{message}}
+              </div>
+        </div>
+            <form class="row g-3" (ngSubmit)="onSubmit()">
+                <div class="input-group flex-nowrap">
+                    <input type="password" class="form-control" placeholder="New Password"  aria-label="Username" 
+                    [(ngModel)]="Password" 
+                    [ngModelOptions]="{standalone: true}" aria-describedby="addon-wrapping">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Update</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template> 
+                    </button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+    </div>

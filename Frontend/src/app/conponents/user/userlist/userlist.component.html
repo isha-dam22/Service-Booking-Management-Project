@@ -1,0 +1,39 @@
+<div class="all">
+
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+            {{message}}
+          </div>
+    </div>
+
+    <ng-template #elseBlock>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">User Details</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{user.Name}}</td>
+                <td>{{user.Email}}</td>
+                <td><a [routerLink]="['/users/userdetails', user.Id]"><button type="button" class="btn btn-warning">Details</button></a></td>
+                <td><a [routerLink]="['/users/userupdate', user.Id]"><button type="button" class="btn btn-success">Update</button></a></td>
+                <td><button type="button" class="btn btn-danger" (click)="onDelete(user.Id)">
+                    <div *ngIf="this.isSubmit != true; else elseBlock">Delete</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template>  
+                </button></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+</div>

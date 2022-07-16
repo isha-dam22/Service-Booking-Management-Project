@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="all">
+    
+    <div class="container">
+        <div class="text-center">
+            <h5 class="mb-4" style="color: white;">Update Service Request</h5>
+        </div>
+        <div *ngIf="this.error === true || this.status === 401">
+            <div class="alert alert-warning" role="alert">
+              {{message}}
+            </div>
+          </div>
+            <form class="row g-3" (ngSubmit)="onSubmit()">
+                <div class="input-group flex-nowrap">
+                    <input type="datetime-local" class="form-control" placeholder="Reqest Date"
+                    [(ngModel)]="ReqDate" 
+                    [ngModelOptions]="{standalone: true}"  
+                    value={{ReqDate}} aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"  
+                    value={{Problem}}
+                    [(ngModel)]="Problem" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Problem" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"  
+                    value={{Status}}
+                    [(ngModel)]="Status" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Status" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                        <textarea class="form-control" 
+                        value={{Description}}
+                        [(ngModel)]="Description" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Description" aria-label="Username"  
+                        aria-describedby="addon-wrapping"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Update</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template>  
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

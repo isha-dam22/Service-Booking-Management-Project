@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="all">
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+            {{message}}
+          </div>
+    </div>
+
+    <ng-template #elseBlock> 
+    <div class="container">
+        <div class="text-center">
+            <h5 class="mb-4" style="color: white;">UPDATE PRODUCT</h5>
+        </div>
+            <form class="row g-3" (ngSubmit)="onSubmit()">
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Name of the Product"  aria-label="Username" value="{{Name}}" [(ngModel)]="Name" 
+                    [ngModelOptions]="{standalone: true}"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"  placeholder="Model of the Product" aria-label="Username" value="{{Model}}" [(ngModel)]="Model" 
+                    [ngModelOptions]="{standalone: true}"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Maker of the Product" aria-label="Username"  value="{{Make}}" [(ngModel)]="Make" 
+                    [ngModelOptions]="{standalone: true}"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control" placeholder="Cost of the Product" aria-label="Username"  value="{{Cost}}" [(ngModel)]="Cost" 
+                    [ngModelOptions]="{standalone: true}"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Update</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template>  
+                    </button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+    </div>

@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="all">
+    <div class="container">
+        <div class="text-center">
+            <h5 class="mb-4" style="color: white;">ADD NEW PRODUCT</h5>
+        </div>
+            <form class="row g-3" (ngSubmit)="onSubmit()">
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Name of the Product"  
+                    [(ngModel)]="Name" 
+                    [ngModelOptions]="{standalone: true}" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"  placeholder="Model of the Product" 
+                    [(ngModel)]="Model" 
+                    [ngModelOptions]="{standalone: true}" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Maker of the Product" [(ngModel)]="Make" 
+                    [ngModelOptions]="{standalone: true}" aria-label="Username"  
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control" placeholder="Cost of the Product" [(ngModel)]="Cost" 
+                    [ngModelOptions]="{standalone: true}" aria-label="Username"  
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Add</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template>  
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

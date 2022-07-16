@@ -1,0 +1,55 @@
+<div class="all">
+    
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+          {{message}}
+        </div>
+      </div>
+    
+      <ng-template #elseBlock>
+
+        <table class="table">
+            <tbody>
+              <tr>
+                <td><a routerLink="/services/addservicereport"><button type="button"
+                  class="btn btn-success">Add Report</button></a></td>
+                <td>
+                <td><a routerLink="/services/report/user"><button type="button"
+                  class="btn btn-success">Report By User</button></a></td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Report Date</th>
+                <th scope="col">Action Taken</th>
+                <th scope="col">Diagnosis Details</th>
+                <th scope="col">Paid</th>
+                <th scope="col">VisitFees</th>
+                <th scope="col">RepairDetails</th>
+                <th scope="col">ServiceType</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reports; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{report.ReportDate.slice(0,10)}}</td>
+                <td>{{report.ActionTaken ? "Yes" : "No"}}</td>
+                <td>{{report.DiagnosisDetails}}</td>
+                <td>{{report.IsPaid ? "Yes" : "No"}}</td>
+                <td>{{report.VisitFees}}</td>
+                <td>{{report.RepairDetails}}</td>
+                <td>{{report.ServiceType}}</td>
+                <td><a [routerLink]="['/services/servicereport/details', report.Id]"><button type="button" class="btn btn-warning">Details</button></a></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</ng-template>
+</div>

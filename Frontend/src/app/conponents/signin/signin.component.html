@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="signin.component.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+
+        </div>
+        <div class="content">
+            <h1>Service Booking <br><span>Management System</span></h1>
+
+            <div class="form">
+                <h2>Login Here</h2>
+
+                <div *ngIf="this.error == true" class="alert alert-danger mt-4" role="alert">
+                    {{message}}                    
+                  </div>
+
+                <form (ngSubmit)="onSubmit()">
+                    <input type="email" name="email" 
+                    [(ngModel)]="email" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter Email Here">
+                    <input type="password" name="password"
+                    [(ngModel)]="password" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter Password Here">
+                    <button type="submit" class="btnn">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Login</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div></ng-template>                       
+                    </button>
+                </form>
+                <p class="link">Don't have an account<br>
+                    <a routerLink="/signup">Sign up </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script> -->
+</body>
+
+</html>

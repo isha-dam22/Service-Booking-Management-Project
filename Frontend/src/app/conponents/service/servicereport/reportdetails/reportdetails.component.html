@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="all">
+    
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+          {{message}}
+        </div>
+      </div>
+    
+      <ng-template #elseBlock>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Report Date</th>
+                <th scope="col">Action Taken</th>
+                <th scope="col">Diagnosis Details</th>
+                <th scope="col">Paid</th>
+                <th scope="col">VisitFees</th>
+                <th scope="col">RepairDetails</th>
+                <th scope="col">ServiceType</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reports; index as i">
+                <td>{{report.ReportDate.slice(0,10)}}</td>
+                <td>{{report.ActionTaken ? "Yes" : "No"}}</td>
+                <td>{{report.DiagnosisDetails}}</td>
+                <td>{{report.IsPaid ? "Yes" : "No"}}</td>
+                <td>{{report.VisitFees}}</td>
+                <td>{{report.RepairDetails}}</td>
+                <td>{{report.ServiceType}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</ng-template>
+</div>

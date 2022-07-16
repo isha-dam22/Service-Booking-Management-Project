@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<div class="all">
+    <div class="container">
+        <div class="text-center">
+            <h5 class="mb-4" style="color: white;">Add a Service Report</h5>
+        </div>
+        <div *ngIf="this.error === true || this.status === 401">
+            <div class="alert alert-warning" role="alert">
+              {{message}}
+            </div>
+          </div>
+            <form class="row g-3" (ngSubmit)="onSubmit()">
+                <div class="input-group flex-nowrap">
+                    <input type="datetime-local" class="form-control" placeholder="Report Date"  aria-label="Username"
+                    [(ngModel)]="ReportDate" 
+                    [ngModelOptions]="{standalone: true}" 
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="ActionTaken" 
+                    [ngModelOptions]="{standalone: true}"  placeholder="Action Taken"  aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="DiagnosisDetails" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Diagnosis Details"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"
+                    [(ngModel)]="IsPaid" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Paid?"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control"
+                    [(ngModel)]="VisitFees" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Visit Fees"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"
+                    [(ngModel)]="RepairDetails" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Repair Details"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control"
+                    [(ngModel)]="SerReqId" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Repair Details"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control"
+                    [(ngModel)]="ServiceType" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Service Type"  aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Add</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </ng-template> 
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

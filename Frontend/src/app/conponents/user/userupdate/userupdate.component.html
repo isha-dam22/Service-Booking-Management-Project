@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="all">
+
+    <div *ngIf="this.error === true || this.status === 401">
+        <div class="item" role="status">
+            <span>{{message}}</span>
+        </div>
+    </div>
+
+    <div class="container">
+            <form (ngSubmit)="onSubmit()" class="row g-3">
+                <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="Name" 
+                    [(ngModel)]="name" 
+                    [ngModelOptions]="{standalone: true}" value="{{name}}" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="email" class="form-control" 
+                    [(ngModel)]="email" 
+                    [ngModelOptions]="{standalone: true}" value="{{email}}" placeholder="Email" aria-label="Username"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control" placeholder="Phone Number" aria-label="Username"
+                    [(ngModel)]="mobile" 
+                    [ngModelOptions]="{standalone: true}"  value="{{mobile}}"
+                        aria-describedby="addon-wrapping">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        <div *ngIf="this.isSubmit != true; else elseBlock">Update</div>
+                        <ng-template #elseBlock><div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div></ng-template>  
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

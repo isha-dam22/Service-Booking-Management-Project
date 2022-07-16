@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="all">
+    <div *ngIf="this.error === true || this.status === 401; else elseBlock">
+        <div class="alert alert-warning" role="alert">
+            {{message}}
+          </div>
+    </div>
+
+    <ng-template #elseBlock> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Model</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Created Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{Name}}</td>
+                <td>{{Make}}</td>
+                <td>{{Model}}</td>
+                <td>{{Cost}}</td>
+                <td>{{CreatedDate}}</td>
+        </tbody>
+    </table>
+</ng-template>
+</div>
